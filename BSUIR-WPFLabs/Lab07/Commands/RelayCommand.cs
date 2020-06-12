@@ -8,14 +8,24 @@ namespace Lab07.Commands
     /// </summary>
     public class RelayCommand : ICommand
     {
+        #region Fields
+
         private readonly Func<object, bool> canExecute;
         private readonly Action<object> onExecute;
         private readonly EventHandler requerySuggested;
+
+        #endregion
+
+        #region Events
 
         /// <summary>
         ///     Событие, возникающее при измении состояния команды
         /// </summary>
         public event EventHandler CanExecuteChanged;
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         ///     Конструктор команды
@@ -30,6 +40,10 @@ namespace Lab07.Commands
             requerySuggested = (o, e) => Invalidate();
             CommandManager.RequerySuggested += requerySuggested;
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///     Обработчик события RequerySuggested, которое происходит,
@@ -50,5 +64,7 @@ namespace Lab07.Commands
         /// </summary>
         /// <param name="parameter">Параметр команды</param>
         public void Execute(object parameter) => onExecute?.Invoke(parameter);
+
+        #endregion
     }
 }

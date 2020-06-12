@@ -4,19 +4,27 @@ using System.Windows.Input;
 
 using Lab07.Commands;
 using Lab07.Database;
-using Lab07.Models;
 
 namespace Lab07.ViewModels
 {
+    /// <summary>
+    ///     ViewModel конкретного продукта
+    /// </summary>
+    /// <remarks>Создана для привязок в окнах UpdateProductView и AddProductView</remarks>
     public class ProductViewModel : ViewModelBase
     {
+        #region Fields
+
         private string name;
         private string description;
         private int quantity;
         private decimal cost;
 
-        public Dictionary<string, ICommand> Commands { get; set; }
+        #endregion
 
+        #region Properties
+
+        public Dictionary<string, ICommand> Commands { get; set; }
         public int ProductID { get; set; }
 
         public string Name
@@ -63,6 +71,10 @@ namespace Lab07.ViewModels
             }
         }
 
+        #endregion
+
+        #region Constructor
+
         public ProductViewModel()
         {
             Name = string.Empty;
@@ -73,6 +85,10 @@ namespace Lab07.ViewModels
 
             RegisterCommands();
         }
+
+        #endregion
+
+        #region Methods
 
         private void RegisterCommands()
         {
@@ -89,7 +105,11 @@ namespace Lab07.ViewModels
 
         private void OnAddProduct(object parameter)
         {
-            var window = parameter as Window;
+            if (!(parameter is Window window))
+            {
+                return;
+            }
+
             DatabaseManager.AddProductToDatabase(Name, Quantity, Cost, Description);
             window.DialogResult = true;
             window.Close();
@@ -102,10 +122,16 @@ namespace Lab07.ViewModels
 
         private void OnUpdateProduct(object parameter)
         {
-            var window = parameter as Window;
+            if (!(parameter is Window window))
+            {
+                return;
+            }
+
             DatabaseManager.UpdateProduct(ProductID, Name, Quantity, Cost, Description);
             window.DialogResult = true;
             window.Close();
         }
+
+        #endregion
     }
 }
