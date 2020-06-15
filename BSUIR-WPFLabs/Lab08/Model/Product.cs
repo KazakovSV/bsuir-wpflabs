@@ -16,16 +16,18 @@ namespace Lab08.Model
         private int quantity;
         private decimal cost;
 
-        #endregion
+        #endregion // Fields
 
         #region Properties
 
-        public int Id
-        {
-            get;
-            set;
-        }
+        /// <summary>
+        ///     Идентификатор продукта
+        /// </summary>
+        public int Id { get; set; }
 
+        /// <summary>
+        ///     Название продукта
+        /// </summary>
         public string Name
         {
             get => name;
@@ -37,6 +39,9 @@ namespace Lab08.Model
             }
         }
 
+        /// <summary>
+        ///     Описание продукта
+        /// </summary>
         public string Description
         {
             get => description;
@@ -48,6 +53,9 @@ namespace Lab08.Model
             }
         }
 
+        /// <summary>
+        ///     Количество на складе
+        /// </summary>
         public int Quantity
         {
             get => quantity;
@@ -59,6 +67,9 @@ namespace Lab08.Model
             }
         }
 
+        /// <summary>
+        ///     Стоимость единицы товара
+        /// </summary>
         public decimal Cost
         {
             get => cost;
@@ -70,7 +81,7 @@ namespace Lab08.Model
             }
         }
 
-        #endregion
+        #endregion // Properties
 
         #region Implementing INotifyPropertyChanged
 
@@ -81,6 +92,6 @@ namespace Lab08.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion
+        #endregion // Implementing INotifyPropertyChanged
     }
 }
