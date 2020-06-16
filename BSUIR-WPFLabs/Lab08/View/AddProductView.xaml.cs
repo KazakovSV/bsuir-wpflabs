@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Lab08
+namespace Lab08.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddProductView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddProductView : Window
     {
-        public MainWindow()
+        public AddProductView()
         {
             InitializeComponent();
         }

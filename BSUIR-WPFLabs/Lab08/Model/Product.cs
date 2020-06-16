@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace Lab08.Model
 {
     /// <summary>
-    ///     Главная модель
+    ///     Модель товара
     /// </summary>
     /// <remarks>Реализует INotifyPropertyChanged для обновления во View</remarks>
     public class Product : INotifyPropertyChanged

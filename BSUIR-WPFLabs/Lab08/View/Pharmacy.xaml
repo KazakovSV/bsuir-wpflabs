@@ -56,18 +56,23 @@
         <StackPanel Grid.Row="0"
                     Grid.Column="0"
                     Margin="5,5,0,5">
-            <Button Content="Добавить продукт"/>
-            <Button Content="Редактировать продукт"/>
-            <Button Content="Удалить продукт"/>
+            <Button Content="Добавить продукт"
+                    Command="{Binding Commands[AddProductCommand]}"/>
+            <Button Content="Редактировать продукт"
+                    Command="{Binding Commands[EditProductCommand]}"/>
+            <Button Content="Удалить продукт"
+                    Command="{Binding Commands[DeleteProductCommand]}"/>
         </StackPanel>
 
         <!-- Во втором столбце лежит DataGrid для отображения данных -->
-        <DataGrid Grid.Row="0"
+        <DataGrid x:Name="ProductsDataGrid"
+                  Grid.Row="0"
                   Grid.Column="1"
                   Margin="5"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
                   ItemsSource="{Binding Products}"
+                  SelectedItem="{Binding SelectedProduct}"
                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№ п\п"
