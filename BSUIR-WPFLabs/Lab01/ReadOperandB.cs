@@ -23,7 +23,7 @@ namespace Lab01
                     if ((character == "0" && calculator.OperandB == "0")
                         || (character == "." && calculator.OperandB.EndsWith(".")))
                     {
-                        break;
+                        return;
                     }
 
                     if (calculator.OperandB == "" && character == ".")
@@ -33,6 +33,10 @@ namespace Lab01
                     else if (calculator.OperandB == "0" && character != ".")
                     {
                         calculator.OperandB = character;
+                    }
+                    else if (calculator.OperandB == "-0" && character != ".")
+                    {
+                        calculator.OperandB = $"-{character}";
                     }
                     else
                     {
@@ -46,6 +50,7 @@ namespace Lab01
                 case "-":
                 case "*":
                 case "/":
+                case "pow":
 
                     if (string.IsNullOrEmpty(calculator.OperandB))
                     {
@@ -68,6 +73,34 @@ namespace Lab01
                     calculator.Calculate();
                     calculator.OperandA = calculator.Result;
                     calculator.State = new ReadOperandA();
+
+                    break;
+                case "sqrt":
+                    calculator.Operation = character;
+                    calculator.Calculate();
+                    calculator.OperandA = calculator.Result;
+                    calculator.State = new ReadOperandA();
+
+                    break;
+                case "sign":
+
+                    if (string.IsNullOrEmpty(calculator.OperandB))
+                    {
+                        calculator.OperandB = "-0";
+                    }
+                    else if (calculator.OperandB.StartsWith("-"))
+                    {
+                        calculator.OperandB = calculator.OperandB.Remove(0, 1);
+                    }
+                    else
+                    {
+                        calculator.OperandB = calculator.OperandB.Insert(0, "-");
+                    }
+
+                    calculator.Result = calculator.OperandB;
+
+                    break;
+                case "sin":
 
                     break;
                 default:

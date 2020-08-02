@@ -48,6 +48,18 @@ namespace Lab01
                     Div();
                     break;
 
+                case "pow":
+                    Pow();
+                    break;
+
+                case "sqrt":
+                    Sqrt();
+                    break;
+
+                case "sin":
+                    Sin();
+                    break;
+
                 default:
                     throw new ArgumentException($"Unknown operation {Operation}");
             }
@@ -90,6 +102,28 @@ namespace Lab01
             {
                 Result = (op1 / op2).ToString();
             }
+        }
+
+        private void Pow()
+        {
+            var op1 = GetValueFromString(OperandA);
+            var op2 = GetValueFromString(OperandB);
+
+            Result = Math.Pow(op1, op2).ToString();
+        }
+
+        private void Sqrt()
+        {
+            var op1 = GetValueFromString(OperandA);
+
+            Result = Math.Sqrt(op1).ToString();
+        }
+
+        private void Sin()
+        {
+            var op1 = GetValueFromString(OperandA);
+
+            Result = Math.Sin(op1).ToString();
         }
 
         private double GetValueFromString(string source)

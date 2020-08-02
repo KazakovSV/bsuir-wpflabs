@@ -43,6 +43,10 @@ namespace Lab01
                         {
                             calculator.OperandA = character;
                         }
+                        else if (calculator.OperandA == "-0" && character != ".")
+                        {
+                            calculator.OperandA = $"-{character}";
+                        }
                         else
                         {
                             calculator.OperandA += character;
@@ -56,6 +60,7 @@ namespace Lab01
                 case "-":
                 case "*":
                 case "/":
+                case "pow":
 
                     if (!string.IsNullOrEmpty(calculator.Operation))
                     {
@@ -84,6 +89,42 @@ namespace Lab01
                     {
                         calculator.OperandA = string.Empty;
                     }
+
+                    break;
+                case "sqrt":
+                    calculator.Operation = character;
+                    calculator.Calculate();
+                    calculator.OperandA = calculator.Result;
+
+                    break;
+                case "sign":
+
+                    if (string.IsNullOrEmpty(calculator.OperandA))
+                    {
+                        calculator.OperandA = "-0";
+                    }
+                    else if (calculator.OperandA.StartsWith("-"))
+                    {
+                        calculator.OperandA = calculator.OperandA.Remove(0, 1);
+                    }
+                    else
+                    {
+                        calculator.OperandA = calculator.OperandA.Insert(0, "-");
+                    }
+
+                    calculator.Result = calculator.OperandA;
+
+                    break;
+                case "sin":
+
+                    if (string.IsNullOrEmpty(calculator.OperandA))
+                    {
+                        return;
+                    }
+
+                    calculator.Operation = character;
+                    calculator.Calculate();
+                    calculator.OperandA = calculator.Result;
 
                     break;
                 default:
