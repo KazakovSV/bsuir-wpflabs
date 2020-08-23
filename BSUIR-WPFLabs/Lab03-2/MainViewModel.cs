@@ -166,6 +166,13 @@ namespace Lab03_2
         {
             var buildString = $"{Name}:{Surname}:{City}:{Street}:{House}:{Position}";
 
+            var employee = Employee.GetEmployeeFromString(buildString);
+
+            if (Staff.Any(item => item.Equals(employee)))
+            {
+                return;
+            }
+
             try
             {
                 using (var writer = new StreamWriter(DATA_FILE, true))
@@ -177,13 +184,6 @@ namespace Lab03_2
             {
                 Console.WriteLine("The file could not be write:");
                 Console.WriteLine(e.Message);
-            }
-
-            var employee = Employee.GetEmployeeFromString(buildString);
-
-            if (Staff.Any(item => item.Equals(employee)))
-            {
-                return;
             }
 
             Staff.Add(employee);
