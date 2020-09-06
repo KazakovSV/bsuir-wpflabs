@@ -1,0 +1,28 @@
+﻿<Window x:Class="Lab05.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab05"
+        mc:Ignorable="d"
+        Title="Graphics Editor"
+        Height="576"
+        Width="960"
+        ResizeMode="NoResize">
+
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+
+    <Canvas x:Name="ArtBoard">
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Open" Command="{StaticResource OpenCommand}"/>
+                <MenuItem Header="Save" Command="{StaticResource SaveCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Object">
+                <MenuItem Header="Edit" Command="{StaticResource EditCommand}"/>
+            </MenuItem>
+        </Menu>
+    </Canvas>
+</Window>
