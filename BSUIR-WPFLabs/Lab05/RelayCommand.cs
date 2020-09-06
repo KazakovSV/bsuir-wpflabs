@@ -11,6 +11,8 @@ namespace Lab01
         private readonly Func<object, bool> _canExecute;
         private readonly Action<object> _onExecute;
         private readonly EventHandler _requerySuggested;
+        private Func<bool> canSave;
+        private Action<object> onSave;
 
         /// <summary>
         ///     Событие, возникающее при измении состояния команды
@@ -29,6 +31,17 @@ namespace Lab01
 
             _requerySuggested = (o, e) => Invalidate();
             CommandManager.RequerySuggested += _requerySuggested;
+        }
+
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null, Func<bool> canSave = null) : this(execute, canExecute)
+        {
+            this.canSave = canSave;
+        }
+
+        public RelayCommand(Action<object> onSave, Func<bool> canSave)
+        {
+            this.onSave = onSave;
+            this.canSave = canSave;
         }
 
         /// <summary>
