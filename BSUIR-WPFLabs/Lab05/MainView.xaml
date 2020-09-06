@@ -17,11 +17,11 @@
     <Canvas x:Name="ArtBoard">
         <Menu>
             <MenuItem Header="File">
-                <MenuItem Header="Open" Command="{StaticResource OpenCommand}"/>
-                <MenuItem Header="Save" Command="{StaticResource SaveCommand}"/>
+                <MenuItem Header="Open" Command="{Binding OpenCommand}"/>
+                <MenuItem Header="Save" Command="{Binding SaveCommand}"/>
             </MenuItem>
             <MenuItem Header="Object">
-                <MenuItem Header="Edit" Command="{StaticResource EditCommand}"/>
+                <MenuItem Header="Edit" Command="{Binding EditCommand}"/>
             </MenuItem>
         </Menu>
     </Canvas>
