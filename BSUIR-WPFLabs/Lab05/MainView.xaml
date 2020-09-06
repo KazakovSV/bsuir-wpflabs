@@ -13,34 +13,52 @@
     </Window.DataContext>
 
     <DockPanel>
+        <b:Interaction.Triggers>
+            <b:EventTrigger EventName="MouseDown">
+                <b:InvokeCommandAction
+                    Command="{Binding AddCommand}"
+                    CommandParameter="{Binding ElementName=ArtBoard}"/>
+            </b:EventTrigger>
+        </b:Interaction.Triggers>
+
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Open"
                           Command="{Binding OpenCommand}"
-                          CommandParameter="{Binding ElementName=ArtBoard, Path=Children}"/>
+                          CommandParameter="{Binding ElementName=ArtBoard}"/>
                 <MenuItem Header="Save"
                           Command="{Binding SaveCommand}"
-                          CommandParameter="{Binding ElementName=ArtBoard, Path=Children}"/>
+                          CommandParameter="{Binding ElementName=ArtBoard}"/>
             </MenuItem>
             <MenuItem Header="Object">
                 <MenuItem Header="Add"
                           Command="{Binding AddCommand}"
-                          CommandParameter="{Binding ElementName=ArtBoard, Path=Children}"/>
+                          CommandParameter="{Binding ElementName=ArtBoard}"/>
                 <MenuItem Header="Edit"
                           Command="{Binding EditCommand}"
-                          CommandParameter="{Binding ElementName=ArtBoard, Path=Children}"/>
+                          CommandParameter="{Binding ElementName=ArtBoard}"/>
             </MenuItem>
         </Menu>
 
         <Canvas x:Name="ArtBoard"
                 Background="White">
-            <b:Interaction.Triggers>
-                <b:EventTrigger EventName="MouseDown">
-                    <b:InvokeCommandAction
-                        Command="{Binding AddCommand}"
-                        CommandParameter="{Binding ElementName=ArtBoard, Path=Children}"/>
-                </b:EventTrigger>
-            </b:Interaction.Triggers>
+            <Path Fill="Gray" Stroke="Blue" StrokeThickness="2">
+                <Path.Data>
+                    <GeometryGroup>
+                        <EllipseGeometry Center="480,250" RadiusX="100" RadiusY="100"/>
+                        <LineGeometry StartPoint="480,250" EndPoint="580,250"/>
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+
+            <Path Fill="Gray" Stroke="Green" StrokeThickness="4">
+                <Path.Data>
+                    <GeometryGroup>
+                        <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100"/>
+                        <LineGeometry StartPoint="0,0" EndPoint="100,100"/>
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
         </Canvas>
     </DockPanel>
 </Window>

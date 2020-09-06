@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Shapes;
 
 using Lab01;
 
@@ -71,6 +74,9 @@ namespace Lab05
 
         private void OnAdd(object parameter)
         {
+            var artBoard = parameter as Canvas;
+            var mousePosition = Mouse.GetPosition(artBoard);
+            var circle = new Ellipse();
         }
 
         #endregion // Handlers
