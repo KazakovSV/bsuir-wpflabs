@@ -29,8 +29,8 @@ namespace Lab05
         {
             SaveCommand = new RelayCommand(OnSave, CanSave);
             OpenCommand = new RelayCommand(OnOpen, CanOpen);
-            SaveCommand = new RelayCommand(OnEdit, CanEdit);
-            AddCommand = new RelayCommand(OnEdit, CanEdit);
+            EditCommand = new RelayCommand(OnEdit, CanEdit);
+            AddCommand = new RelayCommand(OnAdd, CanAdd);
         }
 
         #endregion // RgisterCommands
@@ -39,42 +39,38 @@ namespace Lab05
 
         private bool CanSave(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void OnSave(object parameter)
         {
-            throw new NotImplementedException();
         }
 
         private bool CanOpen(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void OnOpen(object parameter)
         {
-            throw new NotImplementedException();
         }
 
         private bool CanEdit(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void OnEdit(object parameter)
         {
-            throw new NotImplementedException();
         }
 
         private bool CanAdd(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         private void OnAdd(object parameter)
         {
-            throw new NotImplementedException();
         }
 
         #endregion // Handlers

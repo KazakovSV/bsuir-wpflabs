@@ -12,10 +12,12 @@
         <local:MainViewModel/>
     </Window.DataContext>
 
-    <Canvas x:Name="ArtBoard">
+    <Canvas x:Name="ArtBoard"
+            Background="White">
         <b:Interaction.Triggers>
             <b:EventTrigger EventName="MouseDown">
-                <b:InvokeCommandAction Command="{Binding AddCommand}"/>
+                <b:InvokeCommandAction Command="{Binding AddCommand}"
+                                       CommandParameter="{Binding ElementName=ArtBoard, Path=Children}"/>
             </b:EventTrigger>
         </b:Interaction.Triggers>
         
