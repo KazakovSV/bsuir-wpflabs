@@ -19,6 +19,7 @@ namespace Lab05
         public ICommand SaveCommand { get; private set; }
         public ICommand OpenCommand { get; private set; }
         public ICommand EditCommand { get; private set; }
+        public ICommand AddCommand { get; private set; }
 
         #endregion // Properties
 
@@ -29,6 +30,7 @@ namespace Lab05
             SaveCommand = new RelayCommand(OnSave, CanSave);
             OpenCommand = new RelayCommand(OnOpen, CanOpen);
             SaveCommand = new RelayCommand(OnEdit, CanEdit);
+            AddCommand = new RelayCommand(OnEdit, CanEdit);
         }
 
         #endregion // RgisterCommands
@@ -61,6 +63,16 @@ namespace Lab05
         }
 
         private void OnEdit(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanAdd(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnAdd(object parameter)
         {
             throw new NotImplementedException();
         }
