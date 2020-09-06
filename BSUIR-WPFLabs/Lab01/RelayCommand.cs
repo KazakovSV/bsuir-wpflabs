@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Lab01
+namespace Lab05
 {
     /// <summary>
     ///     Класс, реализующий интерфейс ICommand для работы с командами
